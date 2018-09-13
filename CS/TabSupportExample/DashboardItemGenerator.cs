@@ -21,6 +21,7 @@ namespace TabSupportExample
             Measure targetValue = new Measure("SalesTarget");
             targetValue.NumericFormat.FormatType = DataItemNumericFormatType.Currency;
             Card card = new Card(actualValue, targetValue);
+            card.LayoutTemplate = new CardCompactLayoutTemplate();
             cardItem.Cards.Add(card);
 
             return cardItem;
@@ -55,8 +56,7 @@ namespace TabSupportExample
 
             gridItem.Columns.Add(new GridDimensionColumn(new Dimension("Country")));
             gridItem.Columns.Add(new GridMeasureColumn(new Measure("Sales")));
-            gridItem.Columns.Add(new GridDeltaColumn(new Measure("Sales", SummaryType.Max),
-                                                 new Measure("Sales", SummaryType.Min)));
+            gridItem.Columns.Add(new GridDeltaColumn(new Measure("Sales"), new Measure("SalesTarget")));
             gridItem.Columns.Add(new GridSparklineColumn(new Measure("Sales")));
             gridItem.SparklineArgument = new Dimension("SalesDate", DateTimeGroupInterval.MonthYear);
 
