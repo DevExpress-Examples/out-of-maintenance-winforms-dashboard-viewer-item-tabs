@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.toggleSwitchTimer = new DevExpress.XtraEditors.ToggleSwitch();
             this.btnModify = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
             this.dashboardViewer1 = new DevExpress.DashboardWin.DashboardViewer(this.components);
-            this.toggleSwitchTimer = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchTimer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -51,8 +51,22 @@
             this.panelControl1.Size = new System.Drawing.Size(684, 52);
             this.panelControl1.TabIndex = 1;
             // 
+            // toggleSwitchTimer
+            // 
+            this.toggleSwitchTimer.Enabled = false;
+            this.toggleSwitchTimer.Location = new System.Drawing.Point(429, 13);
+            this.toggleSwitchTimer.Name = "toggleSwitchTimer";
+            this.toggleSwitchTimer.Properties.AutoWidth = true;
+            this.toggleSwitchTimer.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.toggleSwitchTimer.Properties.OffText = "Timer Off";
+            this.toggleSwitchTimer.Properties.OnText = "Timer On";
+            this.toggleSwitchTimer.Size = new System.Drawing.Size(119, 24);
+            this.toggleSwitchTimer.TabIndex = 3;
+            this.toggleSwitchTimer.Toggled += new System.EventHandler(this.toggleSwitchTimer_Toggled);
+            // 
             // btnModify
             // 
+            this.btnModify.Enabled = false;
             this.btnModify.Location = new System.Drawing.Point(221, 13);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(163, 23);
@@ -79,19 +93,6 @@
             this.dashboardViewer1.Size = new System.Drawing.Size(684, 437);
             this.dashboardViewer1.TabIndex = 0;
             // 
-            // toggleSwitchTimer
-            // 
-            this.toggleSwitchTimer.Enabled = false;
-            this.toggleSwitchTimer.Location = new System.Drawing.Point(429, 13);
-            this.toggleSwitchTimer.Name = "toggleSwitchTimer";
-            this.toggleSwitchTimer.Properties.AutoWidth = true;
-            this.toggleSwitchTimer.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.toggleSwitchTimer.Properties.OffText = "Timer Off";
-            this.toggleSwitchTimer.Properties.OnText = "Timer On";
-            this.toggleSwitchTimer.Size = new System.Drawing.Size(119, 24);
-            this.toggleSwitchTimer.TabIndex = 3;
-            this.toggleSwitchTimer.Toggled += new System.EventHandler(this.toggleSwitchTimer_Toggled);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,8 +105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchTimer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -10,7 +10,7 @@ namespace TabSupportExample
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         private Timer tabTimer = new Timer();
-        string  timedTabContainerName;
+        string timedTabContainerName;
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace TabSupportExample
             dashboard.Items.Add(DashboardItemGenerator.GenerateListBoxItem(dataSource, "list1"));
 
             TabContainerDashboardItem tabContainer = new TabContainerDashboardItem();
+            tabContainer.ComponentName = "tabContainer1";
             tabContainer.TabPages.Add(new DashboardTabPage() { Name = "Tab Page One", ComponentName = "page1" });
             tabContainer.TabPages["page1"].AddRange(dashboard.Items["grid1"], dashboard.Items["pie1"]);
 
@@ -40,9 +41,16 @@ namespace TabSupportExample
 
             dashboard.Items.Add(tabContainer);
 
-            dashboard.SaveToXml("test_tab_dashboard.xml");
+            dashboard.RebuildLayout();
+            // Adjust the dashboard layout.
+            dashboard.LayoutRoot.FindRecursive(dashboard.Items["grid1"]).Weight = 40;
+            dashboard.LayoutRoot.FindRecursive(dashboard.Items["pie1"]).Weight = 60;
+            DashboardLayoutGroup rootGroup = dashboard.LayoutRoot.ChildNodes[0] as DashboardLayoutGroup;
+            rootGroup.Orientation = DashboardLayoutGroupOrientation.Horizontal;
 
             dashboardViewer1.Dashboard = dashboard;
+
+            btnModify.Enabled = true;
             toggleSwitchTimer.Enabled = true;
         }
 
@@ -50,7 +58,13 @@ namespace TabSupportExample
         {
             Dashboard dashboard = dashboardViewer1.Dashboard;
 
+            // Move the card1 item to a tab page containing the list1 item.
             dashboard.Items["card1"].ParentContainer = dashboard.Items["list1"].ParentContainer;
+            // Reorder tab pages.
+            TabContainerDashboardItem tabContainer = dashboard.Items["tabContainer1"] as TabContainerDashboardItem;
+            DashboardTabPage tabPage = tabContainer.TabPages[0];
+            tabContainer.TabPages.Remove(tabPage);
+            tabContainer.TabPages.Insert(1, tabPage);
 
             dashboard.Items.ForEach(delegate (DashboardItem item)
             {
@@ -102,8 +116,6 @@ namespace TabSupportExample
             pieItem.Arguments.Add(new Dimension("Country"));
 
             dashboard.Items.AddRange(gridItem, pieItem);
-
-            dashboard.SaveToXml("test_dashboard.xml");
             return dashboard;
         }
 
@@ -111,13 +123,13 @@ namespace TabSupportExample
         {
             Dashboard dashboard = ((DashboardViewer)sender).Dashboard;
 
-            if (e.DashboardItemName == "page1")
-                e.Items.Add(new DashboardToolbarItem("",
-                new Action<DashboardToolbarItemClickEventArgs>((args) =>
-                {
-                    System.Diagnostics.Process.Start("https://www.devexpress.com/");
-                }))
-                { ButtonImage = Image.FromFile("Support_16x16.png") });
+            e.Items.Add(new DashboardToolbarItem(string.Empty,
+            new Action<DashboardToolbarItemClickEventArgs>((args) =>
+            {
+                MessageBox.Show(e.DashboardItemName, "Dashboard Item Component Name");
+                ((DashboardViewer)sender).SaveDashboardLayout("test_dashboard_layout.xml");
+            }))
+            { ButtonImage = Image.FromFile("Support_16x16.png") });
         }
 
 
