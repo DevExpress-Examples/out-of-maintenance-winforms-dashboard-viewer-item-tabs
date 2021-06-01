@@ -1,9 +1,9 @@
 # How to Create and Modify Dashboard Items and Tab Pages
 
-This example demonstrates how to use Dashboard API to create and modify [dashboard items](xref:https://docs.devexpress.com/Dashboard/116521/basic-concepts-and-terminology/dashboard-items) and [tab pages](xref:https://docs.devexpress.com/Dashboard/116503/). You can use the timer to switch tab pages.
+This example demonstrates how to use Dashboard API to create and modify [dashboard items](https://docs.devexpress.com/Dashboard/116521/basic-concepts-and-terminology/dashboard-items) and [tab pages](https://docs.devexpress.com/Dashboard/400237/). You can use timer to switch tab pages.
 
 ![](https://github.com/DevExpress-Examples/winforms-dashboard-viewer-item-tabs/blob/18.2.4%2B/images/win-dashboard-viewer-item-tabs.png)
 
-See also:
+## Documentation
 
-[Dashboard & Data Visualization Blog - Tab Support for Windows & the Web](https://community.devexpress.com/blogs/analytics/archive/2018/09/07/DevExpress-Dashboards-Tab-Support-Windows-Web.aspx)
+- [Tab Container](https://docs.devexpress.com/Dashboard/400237/winforms-dashboard/winforms-designer/create-dashboards-in-the-winforms-designer/dashboard-item-settings/tab-container)
