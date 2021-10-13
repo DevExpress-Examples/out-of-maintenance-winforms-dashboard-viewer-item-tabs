@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T830522)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to Create and Modify Dashboard Items and Tab Pages
+# Dashboard for WinForms - How to Create and Modify Dashboard Items and Tab Pages
 
 This example demonstrates how to use Dashboard API to create and modify [dashboard items](https://docs.devexpress.com/Dashboard/116521/basic-concepts-and-terminology/dashboard-items) and [tab pages](https://docs.devexpress.com/Dashboard/400237/). You can use timer to switch tab pages.
 
